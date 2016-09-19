@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Pokemon Match GameS</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="start_text">Start</string>
+    <string name="resume_text">Resume</string>
+    <string name="rules_text">Rules</string>
+    <string name="title_activity_game">GameActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+</resources>
