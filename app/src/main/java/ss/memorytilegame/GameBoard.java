@@ -52,6 +52,21 @@ public class GameBoard implements java.io.Serializable {
         return listOfUsedPokemon;
     }
 
+    public void setListOfPokemon(List<String> temp)
+    {
+        for(int i =0; i<listOfPokemons.size();i++){
+        listOfPokemons.set(i,temp.get(i));
+    }
+
+    }
+    public void setListOfUsedPokemon(List<String> temp)
+    {
+
+        for(int i =0; i<temp.size();i++){
+            listOfPokemons.set(i,temp.get(i));
+        }
+
+    }
     public void addUsedPokemon(String usedPokemon){
         listOfUsedPokemon.add(usedPokemon);
     }

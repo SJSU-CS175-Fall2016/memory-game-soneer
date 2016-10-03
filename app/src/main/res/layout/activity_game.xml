@@ -177,6 +177,10 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
     <Button
         android:id="@+id/buttonHint"
         android:layout_gravity="center"
@@ -184,6 +188,21 @@
         android:layout_height="wrap_content"
         android:onClick="previewPokemon"
         android:text="Hint" />
+        <Button
+            android:id="@+id/buttonRestart"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="restart"
+            android:text="restart" />
+            <Button
+                android:id="@+id/buttonShuffle"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="shuffle"
+                android:text="Shuffle" />
+            </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

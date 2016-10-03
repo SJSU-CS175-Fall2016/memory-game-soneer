@@ -13,12 +13,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -63,6 +68,7 @@ public class GameActivity extends AppCompatActivity {
         if(currentBoard.getListOfUsedPokemon().size()>0) {
             disablePokemon();
         }
+
 
     }
 
@@ -155,6 +161,8 @@ public class GameActivity extends AppCompatActivity {
                 if (event.getAction() != MotionEvent.ACTION_UP) return false;
                 if(clickable) {
                     if (amountOfSelectedButtons == 0) {
+                        Animation shake = AnimationUtils.loadAnimation(GameActivity.this, R.anim.shake);
+                        button.startAnimation(shake);
                         selectedButton = button;
                         button.setPressed(true);
                         amountOfSelectedButtons = 1;
@@ -164,6 +172,8 @@ public class GameActivity extends AppCompatActivity {
                         currentBoard.addUsedPokemon(selectedButtonOne);
                         ((TextView) findViewById(R.id.score)).setText(currentBoard.setScore(1));
 
+                        Animation shake = AnimationUtils.loadAnimation(GameActivity.this, R.anim.shake);
+                        button.startAnimation(shake);
                         button.setEnabled(false);
                         selectedButton.setEnabled(false);
                         amountOfSelectedButtons = 0;
@@ -220,6 +230,34 @@ public class GameActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+    }
+
+    public void restart(View view){
+
+                Intent refresh = new Intent(this, GameActivity.class);
+        startActivity(refresh);//Start the same Activity
+        finish(); //finish Activity.
+    }
+
+    public void shuffle(View view){
+
+
+        List<String> temp = new ArrayList<String>(currentBoard.getListOfUsedPokemon());
+        List<String> all = new ArrayList<String>( currentBoard.getListOfPokemons());
+
+        temp.remove(" ");
+        temp.addAll(temp);
+
+       all.removeAll(temp);
+        Collections.shuffle(all);
+        temp.addAll(all);
+       currentBoard.setListOfPokemon(temp);
+
+        Intent mainIntent = new Intent(GameActivity.this, GameActivity.class);
+
+        mainIntent.putExtra("currentBoard", currentBoard);
+        startActivityForResult(mainIntent, 111);
 
     }
     public void previewPokemon(View view) {
