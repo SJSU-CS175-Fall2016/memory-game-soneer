@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_enabled="false"
+        android:drawable="@drawable/bellsprout_grayscale" />
+    <item
+        android:state_pressed="true"
+        android:state_enabled="true"
+        android:drawable="@drawable/bellsprout" />
+    <item
+        android:state_focused="true"
+        android:state_enabled="true"
+        android:drawable="@drawable/pokeball" />
+    <item
+        android:state_enabled="true"
+        android:drawable="@drawable/pokeball" />
+</selector><!-- From: file:/D:/Android/MemoryTileGame/app/src/main/res/drawable/xmlbellsprout.xml -->
